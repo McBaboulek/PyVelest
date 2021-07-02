@@ -7,9 +7,9 @@ sys.path.append(os.path.join('utility'))
 
 if not os.path.exists('select2D.par'):
 
-    print '\n+++ Warning!\n'
-    print '- No "select2D.par" file was found in current directory!'
-    print '- Default values will be used and you can change them in the next run.\n'
+    print('\n+++ Warning!\n')
+    print('- No "select2D.par" file was found in current directory!')
+    print('- Default values will be used and you can change them in the next run.\n')
 
     f = open('select2D.par','w')
     f.write("""# set paramaeters for selecting events
@@ -61,7 +61,7 @@ for i in select_par:
     
     select_dict[i[0].strip()] = i[1].strip()
 
-inp_file = raw_input('\nInput NORDIC file name:\n\n')
+inp_file = input('\nInput NORDIC file name:\n\n')
 
 
 
@@ -302,9 +302,9 @@ for i in event_list:
 select_out.close()
 
 #___________________ Print log
-print ''
-print 'Total number of event(s)                                :  ',event_surfed
-print 'Total number of event(s) with bad header in line type E :  ',event_bad_hdrE
-print 'Total number of event(s) passed all conditions          :  ',event_passed
-print 'Total number of event(s) NOT passed all conditions      :  ',event_nopassed
-print 'Total number of event(s) with no magnitude reported!    :  ',event_nomag
+print ('')
+print ('Total number of event(s)                                :  ',event_surfed)
+print ('Total number of event(s) with bad header in line type E :  ',event_bad_hdrE)
+print ('Total number of event(s) passed all conditions          :  ',event_passed)
+print ('Total number of event(s) NOT passed all conditions      :  ',event_nopassed)
+print ('Total number of event(s) with no magnitude reported!    :  ',event_nomag)
