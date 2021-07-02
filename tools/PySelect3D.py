@@ -12,9 +12,9 @@ from matplotlib import ticker, gridspec
 
 if not os.path.exists('select3D.par'):
 
-    print '\n+++ Warning!\n'
-    print '- No "select.par" file was found in current directory!'
-    print '- Default values will be used and you can change them in the next run.\n'
+    print('\n+++ Warning!\n')
+    print('- No "select.par" file was found in current directory!')
+    print('- Default values will be used and you can change them in the next run.\n')
 
     f = open('select3D.par','w')
     f.write("""
@@ -124,11 +124,11 @@ def get_cells(sel_dic, d=2):
 
 #___________________READ SELECTION PARAMAETERS
 
-inp     = raw_input('\n\n+++ Enter NORDIC file name:\n\n')
+inp     = input('\n\n+++ Enter NORDIC file name:\n\n')
 
 par_dic = {}
 
-print '\n+++ Start selecting event(s) in a 3D space, Please Wait...\n'
+print('\n+++ Start selecting event(s) in a 3D space, Please Wait...\n')
 
 for i in select_par:
 
@@ -291,7 +291,7 @@ for evt in data:
 
                 break
 
-print ''
+print('')
 
 w_mean  = w_mean / float(len(data))
 sel_evt = []
@@ -422,12 +422,12 @@ Write_Nordic(inp=out_dic, output='select.out')
 
 #___________________PRINT SUMMARY
 
-print '+++ Cell size in km^3                      :', int(cell_size)
-print '+++ Horizontal Cell size in km^2           :', int(par_dic['H_CELL_SIZE'])
-print '+++ Number of cells in X, Y and Z          : %d, %d, %d'%(len(X)-1, len(Y)-1, len(Z)-1)
-print '+++ Total number of cells                  :', num_cell
-print '+++ Max Number of event per allowded cell  :', max_nevt
-print '+++ Total Number of event (initial)        :', len(data)
-print '+++ Total Number of checked event          :', len(data)-tot_evt_chk
-print '+++ Total Number of selected event (final) :', len(x_fin)
-print '+++ Output file with selected event(s)     : select.out\n'
+print('+++ Cell size in km^3                      :', int(cell_size))
+print('+++ Horizontal Cell size in km^2           :', int(par_dic['H_CELL_SIZE']))
+print('+++ Number of cells in X, Y and Z          : %d, %d, %d'%(len(X)-1, len(Y)-1, len(Z)-1))
+print('+++ Total number of cells                  :', num_cell)
+print('+++ Max Number of event per allowded cell  :', max_nevt)
+print('+++ Total Number of event (initial)        :', len(data))
+print('+++ Total Number of checked event          :', len(data)-tot_evt_chk)
+print('+++ Total Number of selected event (final) :', len(x_fin))
+print('+++ Output file with selected event(s)     : select.out\n')
