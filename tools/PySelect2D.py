@@ -130,7 +130,8 @@ for i in event_list:
     H      = '%02d'%int(i[0][11:13].strip())
     M      = '%02d'%int(i[0][13:15].strip())
     S      = '%02d'%int(i[0][16:18].strip())
-    F      = i[0][18:20].strip()
+    F      = i[0][19:21].strip()
+    #print(i[0])
     
     if float(S) >= 60.0:
         
