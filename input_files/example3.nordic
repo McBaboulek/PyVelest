@@ -1,0 +1,11 @@
+ 1985 0510 21 05 16.1 LE 60.240 6.170 30.00 BER  6 2.3 3.80000 4.0bPDE 3.2sISC  1 
+                1.5     0.5   0.9    5.0             0.4                      5
+ 8505210425.WNN                                                               6
+ ACTION:UPD 93-07-09 09:40 OP:jens STATUS:               ID:19920101080359    I
+ STAT SP IPHASW D HRMM SECON CODA AMPLIT PERI AZIMU VELO SNR AR TRES W DIS CAZ7
+ NRSA SZ IPN  1 D 2105 13.44 0345 1234.6 1.33 245.2 08.6 5.5  2 -0.7 9 555 235
+ BER  SZ IPG  2 U 2105 25.41  200
+ HYA  SZ ISG  1   2105 33.1
+ ODD  SZ IP   3   2105 20.1   250
+ ODD  SZ EPG      2105 22.9
+ ODD  SZ  LG      2105 55.8 

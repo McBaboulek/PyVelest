@@ -1,0 +1,37 @@
+2013 0103 0613 04.3 LE 63.635  22.913  0.0F HEL 15 0.3 1.6LHEL 1.4LUPP        1
+GAP= 80         0.1     0.391   0.477                  0.0                    5
+FULLY AUTOMATIC, EVENT TYPE & LOCATION & MAGNITUDE CHECKED (NIH)              3
+CSS:2013003061203.WFDISC  (DET3C)                                             6
+MINING AREA & TIME WINDOW: PEDERSORE  3KM                                     3
+2013 0103 0613  4.0 LE 63.650  22.942  0.0FFHEL 11 0.4 1.6LHEL                1
+2013 0103 0613  5.2 LP 63.680  22.728  0.1F UPP  7 0.3 1.4LUPP                1
+FINLAND                                                                       3
+STAT SP IPHASW D HRMM SECON CODA AMPLIT PERI AZIMU VELO SNR AR TRES W  DIS CAZ7
+VAF  BZ EP       0613 15.30                    7.0              0.210   67 191
+VAF  BZ ES       0613 23.10                                     0.4 4
+UMAU BZ EP       0613 22.64                                    -0.010  114 285
+BURU BZ EPB      0613 25.38                  141.0             -0.1 9  130 325
+BURU BZ ES       0613 39.82                                    -0.3 4
+ODEU BZ EP       0613 26.31                                    -0.2 9  138 310
+SVAU BZ EP       0613 34.71                                     0.3 8  189 302
+KEF  BZ EPN      0613 35.36                                     0.0 4  192 148
+KEF  BZ ESN      0613 58.10                                    -0.0 8
+SUF  BZ EPG      0613 35.20                                    -0.1 8  193 121
+SUF  BZ  MSG     0613 55.58         3.6 0.20
+SUF  BZ ESN      0613 58.00                                    -0.3 9
+OUL  BZ EPG      0613 39.06                  224.0             -0.2 4  217  40
+OUL  BZ ESG      0614 04.50                                     0.3 5
+SJUU BZ EP       0613 38.75                                     0.1 8  218 344
+LILU BZ EP       0613 41.40                                     0.5 8  236 323
+KAF  BZ EPB      0613 42.50                  314.0              0.2 4  243 133
+KAF  BZ  MSG     0614  8.53         2.7 0.20
+KAF  BZ ESG      0614 11.10                                    -0.2 0
+KALU BZ EPB      0613 43.50                                     0.2 6  249   5
+KALU BZ ESB      0614 12.34                                     0.4 4
+HEMU BZ EPB      0613 45.78                   61.0             -0.4 8  268 249
+HEMU BZ ESG      0614 18.14                                    -0.3 4
+TOF  BZ EPB      0613 48.10                                     0.0 3  281  13
+TOF  BZ  MSG     0614 18.11         2.2 0.20
+TOF  BZ ESB      0614 20.10                                    -0.1 0
+ERTU BZ ES       0614 27.84                                     0.4 0  328 354
+
