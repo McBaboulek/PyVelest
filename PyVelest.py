@@ -1,9 +1,16 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Jun 20 13:54:22 2021
+
+@author: marc
+"""
 #___________________IMPORT FROM NUMPY, SCIPY
 from numpy import loadtxt, diff, ones, random, array, hstack, mean, pi, where, median, degrees, ones_like
 from numpy import arange, sqrt, linalg, arccos, arctan2, rad2deg, zeros_like, abs, linspace, savez, load
 from scipy import zeros, shape, concatenate
 #___________________IMPORT EXTRA LIBRARIES
-##from osgeo import gdal
+from osgeo import gdal
 import tarfile
 import operator
 import sys
@@ -18,7 +25,7 @@ from shutil import copy, rmtree, move
 from LatLon import lat_lon as ll
 #___________________IMPORT FROM MATPLOTLIB
 import mpl_toolkits
-mpl_toolkits.__path__.append('/usr/lib/python2.7/dist-packages/mpl_toolkits/')
+mpl_toolkits.__path__.append('/Users/marc/opt/anaconda3/envs/velest_38/lib/python3.8/site-packages/mpl_toolkits')
 from initial_mpl import init_plotting_isi
 from matplotlib.colors import LightSource
 from matplotlib.cbook import get_sample_data
@@ -64,12 +71,11 @@ class main():
     A class for running velest in automatic mode (synthetic
     model generation, control file prepration, analysing and
     plot results).
-
     """
 
     def __init__(self):
 
-        self.project_nm = raw_input("\n+++ Enter Project Name: <Please use the name of velocity model you're using>\n\n")
+        self.project_nm = input("\n+++ Enter Project Name: <Please use the name of velocity model you're using>\n\n")
         self.input_dic  = self.read_par()
 
     #*-*-*-*-*- Cheeking if topography data exists
@@ -85,9 +91,9 @@ class main():
 
             if not path.exists('IRN.tif'):
 
-                print "+++ It seems, You're running 'PyVelest' for the first time on your system!"
-                print "+++ You'll never see this message next time."
-                print "\n--> Extracting topography data , Please wait ...\n"
+                print("+++ It seems, You're running 'PyVelest' for the first time on your system!")
+                print("+++ You'll never see this message next time.")
+                print("\n--> Extracting topography data , Please wait ...\n")
                 
                 tar = tarfile.open('IRN.tif.tar.gz', "r:gz")
                 tar.extractall()
@@ -230,7 +236,7 @@ class main():
 
     def read_par(self, par_file=path.join('par','par.dat')):   
 
-        print "\n+++ Read VELEST input parameters ..."
+        print("\n+++ Read VELEST input parameters ...")
 
         self.input_par = loadtxt(par_file,comments='#',dtype=str,delimiter=':')
         self.input_dic = {}
@@ -294,7 +300,7 @@ class main():
 
         self.project_nm = self.write_cmn(input_dic=self.input_dic, output='velest.cmn',project_nm=self.project_nm)
 
-        print "+++ Write VELEST control file ..."
+        print("+++ Write VELEST control file ...")
                             
     #*-*-*-*-*- read velocity model and station files
     #
@@ -369,7 +375,7 @@ class main():
 
     def mk_syn_model(self,inp_syntvel=path.join('par','syntvel.dat')):
 
-        print "+++ Make synthetic velocity models ..."
+        print("+++ Make synthetic velocity models ...")
 
         inp       = loadtxt(inp_syntvel,dtype=str,comments='#',delimiter=':')
         
@@ -493,7 +499,7 @@ class main():
         
         for i in range(self.nmod):
             
-            fid = file(path.join(output,"model_"+str(i+1)+".mod"),'w')
+            fid = 'file'(path.join(output,"model_"+str(i+1)+".mod"),'w')
             fid.write('%s%d%s\n'%("Model: model_",i+1,".mod"))
             fid.write('%s%d %s\n'%(" ",len(dep[0]),"         vel,depth,vdamp,phase(f5.2,5x,f7.2,2x,f7.3,3x,a1)"))
             
@@ -596,7 +602,7 @@ class main():
 
     def run_velest(self):
 
-        print "+++ Run VELEST ..."
+        print("+++ Run VELEST ...")
 
         if not path.exists(path.join('velout',self.project_nm)):
 
@@ -607,7 +613,7 @@ class main():
             self.synthvel_files = glob.glob(path.join('tmp',self.project_nm,'synthvel','*.mod'))
             self.synthvel_files = sorted(self.synthvel_files, key=lambda x: int(x.split(sep)[-1].split('_')[1].split('.')[0]))
 
-            print '   --- %d synthetic model(s) found ...'%(len(self.synthvel_files))
+            print('   --- %d synthetic model(s) found ...'%(len(self.synthvel_files)))
 
         else:
 
@@ -652,7 +658,7 @@ class main():
                 
                 move(path.join('tmp',self.project_nm,'tmp.cmn'),'velest.cmn')
 
-                print '   --- Run for synthetic model:',c+1
+                print('   --- Run for synthetic model:',c+1)
 
                 system('velest > /dev/null')
 
@@ -668,8 +674,8 @@ class main():
 
         else:
 
-            print '   --- No synthetic model was found ...'
-            print '   --- Run for initial velocity model ...'
+            print('   --- No synthetic model was found ...')
+            print('   --- Run for initial velocity model ...')
             system('velest > /dev/null')
 
     #*-*-*-*-*- Analyse VELEST results 
@@ -679,7 +685,7 @@ class main():
     
     def analyse_velest_res(self):
 
-        print "+++ Analyse VELEST outputs ..."
+        print("+++ Analyse VELEST outputs ...")
 
         inp_syntvel    = path.join('par','syntvel.dat')
         inp            = loadtxt(inp_syntvel,dtype=str,comments='#',delimiter=':')
@@ -945,7 +951,7 @@ class main():
             cnv_dic         = ReadCNV(inpcnv=path.join('velout',self.project_nm,'final_loc%d.cnv'%(self.ind+1)))
             vel_dic,sta_dic = self.read_VelSta(inp_vel=path.join('velinp',self.velmod_name),inp_sta=self.input_dic['Stationfile'])
 
-            print "+++ Plotting data statistics ..."
+            print("+++ Plotting data statistics ...")
 
             ovel  = [] # origin
             odep  = [] # origin
@@ -1305,7 +1311,7 @@ class main():
             ax6.grid(True, linestyle='--', linewidth=.5, color='k', alpha=.3)
             ax6.legend(loc=1, fontsize=5)
 
-            print '+++ Minimum model id:',self.ind+1
+            print('+++ Minimum model id:',self.ind+1)
             
             plt.tight_layout()
             plt.savefig(path.join('figs',self.project_nm,'velest_final_'+self.project_nm+'.tiff'))
@@ -1367,7 +1373,7 @@ class main():
                     
                     self.sta_list[n] = {'lon':lon,'lat':lat}
                     
-        print "+++ Plotting data statistics ..."
+        print("+++ Plotting data statistics ...")
 
         vel   = []
         dep   = []
@@ -1558,7 +1564,7 @@ class main():
     
     def mk_report(self):
 
-        print "+++ Preparing reports ..."
+        print("+++ Preparing reports ...")
 
         self.repfi    = open(path.join('figs',self.project_nm,'report.dat'),'w')
         self.modout   = open(path.join('figs',self.project_nm,'model.mod'),'w')
@@ -1849,7 +1855,6 @@ RESET TEST(83)=1.0
 RESET TEST(88)=1.0                                                             
 RESET TEST(85)=0.1                                                             
 RESET TEST(91)=0.1
-
 """
 
         station0_hyp.write(RESET)
@@ -2170,7 +2175,7 @@ RESET TEST(91)=0.1
 
                     except ValueError:
 
-                        print '+++ ==> Look at bad event file. Error encounterd on the following line:\n',__
+                        print('+++ ==> Look at bad event file. Error encounterd on the following line:\n',__)
 
 
                     df = t2-t1
@@ -2383,7 +2388,7 @@ RESET TEST(91)=0.1
     
     def plot_final(self):
 
-        print "+++ Plotting final figures, Please wait ..."
+        print("+++ Plotting final figures, Please wait ...")
 
         def cpt2seg(file_name, sym=False, discrete=False):
 
@@ -3118,7 +3123,7 @@ RESET TEST(91)=0.1
 
         remove('velest.cmn')
         
-        print "+++ Finito!"
+        print("+++ Finito!")
 
 #___________________ RUN
 
