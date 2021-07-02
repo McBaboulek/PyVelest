@@ -3,7 +3,7 @@
 """
 Created on Sun Jun 20 13:54:22 2021
 
-@author: marc
+@author: marc b
 """
 #___________________IMPORT FROM NUMPY, SCIPY
 from numpy import loadtxt, diff, ones, random, array, hstack, mean, pi, where, median, degrees, ones_like
